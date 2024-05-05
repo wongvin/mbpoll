@@ -1018,6 +1018,10 @@ main (int argc, char **argv) {
     while (ctx.bIsPolling);
   }
 
+#ifdef MBPOLL_GPIO_RTS
+  end_custom_rts ();
+#endif
+
   vSigIntHandler (SIGTERM);
   return 0;
 }

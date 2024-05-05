@@ -20,5 +20,6 @@
 
 int  init_custom_rts (int num, int act);
 void set_custom_rts (modbus_t *ctx, int on);
+void end_custom_rts (void);
 
 #endif /* _MBPOLL_GPIO_RTS_H_ defined */

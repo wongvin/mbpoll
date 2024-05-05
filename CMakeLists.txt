@@ -36,6 +36,9 @@ if (NOT HAVE_GETOPT)
   include_directories(BEFORE 3rdparty/getopt)
 endif (NOT HAVE_GETOPT)
 
+# Use libgpiod instead of Piduino. Comment out for PIDUINO.
+set(USE_LIBGPIOD 1)
+
 set (MBPOLL_CUSTOM_RTS_GPIO 1 CACHE BOOL "Enable custom Rts (if libpiduino found, only on ARM)")
 
 if (NOT CL_USED)
@@ -95,6 +98,13 @@ if(NOT PIDUINO_WITH_GPIO)
     GROUP_READ GROUP_EXECUTE
     WORLD_READ WORLD_EXECUTE)
 endif(NOT PIDUINO_WITH_GPIO)
+
+if (USE_LIBGPIOD)
+  add_definitions(-DMBPOLL_GPIO_RTS)
+  add_definitions(-DUSE_LIBGPIOD)
+  list(APPEND LINK_OPTIONS gpiod)
+  message (STATUS "Use libgpiod, enable MBPOLL_GPIO_RTS")
+endif (USE_LIBGPIOD)
 
 include (GitVersion)
 GetGitVersion(MBPOLL_VERSION)

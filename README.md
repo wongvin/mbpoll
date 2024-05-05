@@ -70,6 +70,8 @@ For example to query a debian system:
 
     $ apt-cache show libmodbus-dev
 
+CMakeLists.txt uses libgpiod instead of Piduino by default
+
 * Install [piduino](https://github.com/epsilonrt/piduino/tree/dev) **only if you want to manage the RS485 with a GPIO signal**:
 
         $ sudo apt-get install cmake libcppdb-dev pkg-config libsqlite3-dev sqlite3 libudev-dev
@@ -144,6 +146,32 @@ slave at address 33 connected through RTU /dev/ttyUSB2 (38400 Bd)
 
         everything was closed.
         Have a nice day !
+
+Use SparkFun RS-485 Transceiver Breakout (BOB-10124) with UART and GPIO for TXEN (RTS).
+The following command is used to read the input register 70 of the slave
+at default address 1 connected through RTU /dev/ttyAMA1 (defaut 19200-8E1)
+on a Raspberry Pi host with GPIO pins 4, 5, and 6 configured as TX1, RX1, TXEN,
+respectively.
+
+---
+
+        $ mbpoll -t4:float -r70 -B -1 -F6 /dev/ttyAMA1
+
+        mbpoll 1.5-4 - ModBus(R) Master Simulator
+        Copyright (c) 2015-2023 Pascal JEAN, https://github.com/epsilonrt/mbpoll
+        This program comes with ABSOLUTELY NO WARRANTY.
+        This is free software, and you are welcome to redistribute it
+        under certain conditions; type 'mbpoll -w' for details.
+
+        Protocol configuration: ModBus RTU
+        Slave configuration...: address = [1]
+                                start reference = 70, count = 1
+        Communication.........: /dev/ttyAMA1,      19200-8E1 
+                                t/o 1.00 s, poll rate 1000 ms
+        Data type.............: 32-bit float (big endian), output (holding) register table
+
+        -- Polling slave 1...
+        [70]: 	5.154
 
 ## Help
 
