@@ -70,7 +70,9 @@ For example to query a debian system:
 
     $ apt-cache show libmodbus-dev
 
-CMakeLists.txt uses libgpiod instead of Piduino by default
+## wongvin changed default setup to use **libgpiod** with SparkFun RS-485 Transceiver Breakout (BOB-10124) on Raspberry Pi
+**See commits for the changes.
+Modified CMakeLists.txt to use libgpiod instead of Piduino by default**
 
 * Install [piduino](https://github.com/epsilonrt/piduino/tree/dev) **only if you want to manage the RS485 with a GPIO signal**:
 
@@ -147,11 +149,14 @@ slave at address 33 connected through RTU /dev/ttyUSB2 (38400 Bd)
         everything was closed.
         Have a nice day !
 
+##Added by wongvin
+**
+See commits for the changes.
 Use SparkFun RS-485 Transceiver Breakout (BOB-10124) with UART and GPIO for TXEN (RTS).
 The following command is used to read the input register 70 of the slave
 at default address 1 connected through RTU /dev/ttyAMA1 (defaut 19200-8E1)
 on a Raspberry Pi host with GPIO pins 4, 5, and 6 configured as TX1, RX1, TXEN,
-respectively.
+respectively.**
 
 ---
 
