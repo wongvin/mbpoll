@@ -150,8 +150,7 @@ slave at address 33 connected through RTU /dev/ttyUSB2 (38400 Bd)
         Have a nice day !
 
 ## Added by wongvin
-**
-See commits for the changes.
+**See commits for the changes.
 Use SparkFun RS-485 Transceiver Breakout (BOB-10124) with UART and GPIO for TXEN (RTS).
 The following command is used to read the input register 70 of the slave
 at default address 1 connected through RTU /dev/ttyAMA1 (defaut 19200-8E1)
