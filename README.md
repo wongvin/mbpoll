@@ -149,7 +149,7 @@ slave at address 33 connected through RTU /dev/ttyUSB2 (38400 Bd)
         everything was closed.
         Have a nice day !
 
-##Added by wongvin
+## Added by wongvin
 **
 See commits for the changes.
 Use SparkFun RS-485 Transceiver Breakout (BOB-10124) with UART and GPIO for TXEN (RTS).
